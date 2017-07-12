@@ -7,6 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "ChangeTabBarViewController.h"
+//Normal
+#import "OneViewController.h"
+#import "TwoViewController.h"
+#import "ThreeViewController.h"
+#import "FourViewController.h"
+#import "FiveViewController.h"
+
+//Double
+#import "DoubleOneViewController.h"
+#import "DoubleTwoViewController.h"
+#import "DoubleThreeViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,10 +30,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    [self.window makeKeyAndVisible];
+    UIViewController* myvc = [[ChangeTabBarViewController alloc] init];
+    self.window.rootViewController = myvc;
+    self.window.backgroundColor = whiteCo;
+    [self.window makeKeyWindow];
+    
+    
     return YES;
 }
 
 
+-(void)CustomNormal{
+    
+    UITabBarController * tab = [[UITabBarController alloc] init];
+    tab.viewControllers = @[[[OneViewController alloc]init],[[TwoViewController alloc]init],[[ThreeViewController alloc]init],[[FourViewController alloc] init],[[FiveViewController alloc]init]];
+    self.window.rootViewController = tab;
+    
+}
+
+-(void)CustomDouble{
+    
+    UITabBarController * tab = [[UITabBarController alloc] init];
+    tab.viewControllers = @[[[DoubleOneViewController alloc]init],[[DoubleTwoViewController alloc]init],[[DoubleThreeViewController alloc]init]];
+    self.window.rootViewController = tab;
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
