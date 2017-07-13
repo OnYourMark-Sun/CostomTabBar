@@ -37,7 +37,7 @@
     [self.view addSubview:_tabBar];
     UIImageView * imagevi = [[UIImageView alloc] init];
     imagevi.frame = CGRectMake(0, 0, SCREEN_WIDTH, tabHeight);
-    imagevi.image =ImageName(@"qianse.jpg");
+    imagevi.image =ImageName(@"qianback.jpg");
     imagevi.userInteractionEnabled = YES;
     [_tabBar addSubview:imagevi];
     
