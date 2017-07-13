@@ -22,7 +22,7 @@
     NSArray * text = @[@"CustomNormal",@"CustomDouble"];
     for (int i=0; i<2; i++) {
         
-        UD_Button  * button = [[UD_Button alloc] initWithFrame:CGRectMake(IPHONEWIDTH(30), IPHONEHIGHT(100)+i*IPHONEHIGHT(450), SCREEN_WIDTH-IPHONEWIDTH(60), IPHONEHIGHT(300)) centerInset:IPHONEWIDTH(5) updownInset:IPHONEHIGHT(5) imageName:img[i] labelString:text[i] labelFont:IPHONEWIDTH(40)];
+        UD_Button  * button = [[UD_Button alloc] initWithFrame:CGRectMake(30, 100+i*250, SCREEN_WIDTH-60, 200) centerInset:5 updownInset:5 imageName:img[i] labelString:text[i] labelFont:40];
         
         button.tag = i;
         [button addTarget:self action:@selector(backTab:) forControlEvents:UIControlEventTouchUpInside];

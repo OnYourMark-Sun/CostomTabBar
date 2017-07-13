@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.imageView.image = ImageName(@"yinghua.jpg");
 }
 
 - (void)didReceiveMemoryWarning {

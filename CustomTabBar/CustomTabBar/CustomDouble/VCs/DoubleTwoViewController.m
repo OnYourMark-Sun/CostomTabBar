@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor blueColor];
+    self.imageView.image = ImageName(@"pingpao.jpg");
 }
 
 - (void)didReceiveMemoryWarning {

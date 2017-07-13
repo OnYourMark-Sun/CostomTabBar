@@ -10,4 +10,5 @@
 
 @interface DoubleViewController : UIViewController
 @property(nonatomic,strong) UIView  * tabBar;
+@property(nonatomic,strong) UIImageView * imageView;
 @end

@@ -13,7 +13,7 @@
 #import "TwoViewController.h"
 #import "ThreeViewController.h"
 #import "FourViewController.h"
-#import "FiveViewController.h"
+
 
 //Double
 #import "DoubleOneViewController.h"
@@ -46,7 +46,7 @@
 -(void)CustomNormal{
     
     UITabBarController * tab = [[UITabBarController alloc] init];
-    tab.viewControllers = @[[[OneViewController alloc]init],[[TwoViewController alloc]init],[[ThreeViewController alloc]init],[[FourViewController alloc] init],[[FiveViewController alloc]init]];
+    tab.viewControllers = @[[[OneViewController alloc]init],[[TwoViewController alloc]init],[[ThreeViewController alloc]init],[[FourViewController alloc] init]];
     self.window.rootViewController = tab;
     
 }

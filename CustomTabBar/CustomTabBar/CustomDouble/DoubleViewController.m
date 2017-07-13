@@ -7,12 +7,15 @@
 //
 
 #import "DoubleViewController.h"
-
+#import "AppDelegate.h"
 @interface DoubleViewController ()
 {
     
     CGFloat  tabHeight;
     CGFloat tabWidth;
+    
+    NSArray * image;
+    NSArray * seleImg;
 }
 @end
 
@@ -23,8 +26,8 @@
     
     self.tabBarController.tabBar.hidden = YES;
     
-    tabHeight = IPHONEHIGHT(80);
-    tabWidth = IPHONEWIDTH(80);
+    tabHeight = 60;
+    tabWidth = 60;
     [self CreatUI];
 }
 
@@ -39,28 +42,53 @@
     imagevi.userInteractionEnabled = YES;
     [_tabBar addSubview:imagevi];
     
-    CGFloat widd = IPHONEWIDTH((SCREEN_WIDTH-60*3)/4);
+    CGFloat widd = (SCREEN_WIDTH-60*4)/4;
     
-    NSArray * image = @[@"fen.jpg",@"lan.jpg",@"ju.jpg"];
-    NSArray * seleImg = @[@"fen2.jpg",@"lan2.jpg",@"ju2.jpg"];
+    image   = @[@"fen.jpg",@"lan.jpg",@"ju.jpg",@"shandian.jpg"];
+    seleImg = @[@"fen2.jpg",@"lan2.jpg",@"ju2.jpg"];
     
-    NSArray * text = @[@"小粉",@"大蓝",@"小橘"];
-    for (int i=0; i<3; i++) {
-        UD_Button *btnOne = [[UD_Button alloc]initWithFrame:CGRectMake(widd+i*(tabHeight+widd), 0, tabWidth, tabHeight) centerInset:IPHONEWIDTH(5) updownInset:IPHONEWIDTH(5) imageName:image[i]   labelString:text[i] labelFont:IPHONEWIDTH(25)];
+    NSArray * text = @[@"穿越",@"平跑",@"大脚"];
+    for (int i=0; i<4; i++) {
+        
+        
+        if (i ==3) {
+            
+            UIButton * but = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 0, 60, 60)];
+            [but setImage:ImageName(image[i]) forState:UIControlStateNormal];
+            but.layer.cornerRadius = 30;
+            but.layer.masksToBounds = YES;
+            [but addTarget:self action:@selector(fanhui) forControlEvents:UIControlEventTouchUpInside];
+            [_tabBar addSubview:but];
+            break;
+            
+        }
+        
+        UD_Button *btnOne = [[UD_Button alloc]initWithFrame:CGRectMake(widd+i*(tabHeight+widd), 0, tabWidth, tabHeight) centerInset:0 updownInset:0 imageName:image[i]   labelString:text[i] labelFont:10];
         btnOne.tag = i;
         [btnOne addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         [_tabBar addSubview:btnOne];
     }
-    
     //线
-    UIView *grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, IPHONEWIDTH(0.5))];
+    UIView *grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
     grayView.backgroundColor = [UIColor lightGrayColor];
     [_tabBar addSubview:grayView];
 
+    
+    
+    
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
+    [self.view addSubview:_imageView];
 }
-
--(void)buttonAction:(UIButton*)but{
+-(void)fanhui{
+    
+    
+    AppDelegate * app = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    
+    [app CustomNormal];
+    
+}
+-(void)buttonAction:(UD_Button *)but{
     
     
     switch (but.tag) {

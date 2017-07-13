@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NormalViewController : UIViewController
-
+@property(nonatomic,strong) UIView  * tabBar;
+@property(nonatomic,strong) UIImageView * imageView;
 @end
