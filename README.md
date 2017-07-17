@@ -7,3 +7,4 @@
 3、在RootViewController中隐藏原TabBar，以创建UIView代替TabBar位置的视图
 
 4、在UIview上添加Button(至于布局样式根据需求来吧)，响应事件就是self.tabBarController.selectedIndex = button.tag
+![iamge](http://images2015.cnblogs.com/blog/922169/201707/922169-20170713145934931-1957863219.gif)
